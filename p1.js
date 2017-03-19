@@ -1,8 +1,26 @@
-//remove all spaces
-var str = "B I O S T A L L"
-str = str.replace(/\s/g,'');
-//outputs 'BIOSTALL'
-//remove all punctuation
-str = str.replace(/[^\w\s]|_/g, "")
-         .replace(/\s+/g, " ");
-         
+var spaceremover = (text) => {
+	return 'Asentencewithoutspaces.';
+};
+
+//export spaceremover for use in other contexts 
+module.exports = spaceremover;
+// import the code to be tested
+var spaceremover = require("../index");
+
+describe("A program to implement a crypto square algorithm"), () => {
+
+	it("can remove all spaces from a block of text", () => {
+		expect(spaceremover("A sentence wihtout spaces."))
+			.toBe("Anothersentencewithoutspaces.");
+});
+
+};
+
+{
+	"spec_dir": "spec",
+	"spec_files": [
+		"**/*[sS]pec.js"
+	],
+	"stopSpecOnExpectationFailure": false,
+	"random": false
+}
