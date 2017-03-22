@@ -8,5 +8,6 @@ describe("A program to implement a crypto square algorithm", () => {
 			.toBe("Asentencewithoutspaces");
 		expect(spacePunc("Another sentence without spaces."))
 			.toBe("Anothersentencewithoutspaces")
-	})
-})
+		expect(spacePunc('"Egad!", he said. "Don\'t do that!" "What?"'))
+			.toBe('EgadhesaidDontdothatwhat');
+	}
