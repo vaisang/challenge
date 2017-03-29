@@ -1,13 +1,32 @@
 //import code to be tested
-var spacePunc = require("../index");
+var cryptoSquare = require("../index");
 
 describe("A program to implement a crypto square algorithm", () => {
 
-	it("can remove all punctuation and spaces from a block of text", () => {
-		expect(spacePunc("A sentence without spaces."))
-			.toBe("Asentencewithoutspaces");
-		expect(spacePunc("Another sentence without spaces."))
-			.toBe("Anothersentencewithoutspaces")
-		expect(spacePunc('"Egad!", he said. "Don\'t do that!" "What?"'))
+	it("can normalize a block of text", () => {
+		expect(cryptoSquare.normalize("A sentence without spaces."))
+			.toBe("asentencewithoutspaces");
+		expect(cryptoSquare.normalize("Another sentence without spaces."))
+			.toBe("anothersentencewithoutspaces")
+		expect(cryptoSquare.normalize('"Egad!", he said. "Don\'t do that!" "What?"'))
 			.toBe('EgadhesaidDontdothatwhat');
-	}
+	});
+
+	it("can count the number of characters in a message", () => {
+		expect(cryptoSquare.count("hello")).toBe(5);
+	});
+	
+	it("can calculate the square root of a number or next highest integer", () => {
+		expect(cryptoSquare.sqrt(4)).tobe(2);
+		expect(cryptoSquare.sqrt(5)).toBe(3);
+	});
+
+	it("can subdivide a message up into 'words' using the sqrt() value", () => {
+		expect(cryptoSquare.subdivide("asentencewithoutspaces"))
+			.toBe(["asent","encew","ithou","tspac","es"]);
+		expect(cryptoSquare.subdivide("anothersentencewithoutspaces"))
+			.toBe(["anothe", "rsente", "ncewit", "houtsp", "aces"]);
+	});
+		
+});
+	
