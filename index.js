@@ -3,8 +3,14 @@ let normalize = text => text.replace(/\W/g,'').toLowercase();
 let count = text => text.length;
 let sqrt = num => Math.ceil(Math.sqrt(num));
 let subdivide = text => {
+	// initialize our output variable
+	let output =[];
+
 	//figure out how long each "word" should be
 	let word_length = sqrt(count(text));
+
+	// figure out how many words there should be
+	let num_words = Math.ceil(count(text)/word_length);
 
 	// get the first "word"
 	let word1 = text.substring(0, word_length);
@@ -13,9 +19,12 @@ let subdivide = text => {
 	let word4 = text.substring(3 * word_length, 4 * word_length);
 	console.log(word3);
 
-	for ( /* initialization */; /* end condition */; /* incremeter */) {
-
+	for(let i = 0; i , num_words; i += 1) {
+		//add the next word to output
+		output.push(text.substring(i * word_length, (i + 1) + word_length));
 	}
+
+	return output;
 };
 
 //export all things
