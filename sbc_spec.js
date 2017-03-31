@@ -29,8 +29,10 @@ describe("A program to implement a crypto square algorithm", () => {
 	});
 	
 	it("can create new 'words' from the 'columns'", () => {
-		expect(cryptoSquare.something(["asent", "encew", "ithou","tspac", "es"]))
-		.toBe(["aeite","sntss", "echp", "neoa", "twoc"])
-	})
+		expect(cryptoSquare.scramble(["asent", "encew", "ithou","tspac", "es"]))
+			.toEqual(["aeite","sntss", "echp", "neoa", "twuc"]);
+		expect(cryptoSquare.scramble(["anothe", "rsente", "ncewit", "houtsp", "aces"]))
+			.toEqual(["arnha", "nscoc", "oeeue", "tnwts", "htis", "eetp"]);
+	});
 });
 	
