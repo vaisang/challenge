@@ -27,6 +27,10 @@ describe("A program to implement a crypto square algorithm", () => {
 		expect(cryptoSquare.subdivide("anothersentencewithoutspaces"))
 			.toEqual(["anothe", "rsente", "ncewit", "houtsp", "aces"]);
 	});
-		
+	
+	it("can create new 'words' from the 'columns'", () => {
+		expect(cryptoSquare.something(["asent", "encew", "ithou","tspac", "es"]))
+		.toBe(["aeite","sntss", "echp", "neoa", "twoc"])
+	})
 });
 	
