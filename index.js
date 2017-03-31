@@ -11,7 +11,7 @@ let subdivide = text => {
 	// figure out how many words there should be
 	let num_words = Math.ceil(count(text)/word_length);
 
-	for(let i = 0; i , num_words; i += 1) {
+	for(let i = 0; i < num_words; i += 1) {
 		//add the next word to output
 		output.push(text.substring(i * word_length, (i + 1) + word_length));
 	}
