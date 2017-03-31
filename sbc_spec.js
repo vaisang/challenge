@@ -9,7 +9,7 @@ describe("A program to implement a crypto square algorithm", () => {
 		expect(cryptoSquare.normalize("Another sentence without spaces."))
 			.toBe("anothersentencewithoutspaces")
 		expect(cryptoSquare.normalize('"Egad!", he said. "Don\'t do that!" "What?"'))
-			.toBe('EgadhesaidDontdothatwhat');
+			.toBe('egadhesaiddontdothatwhat');
 	});
 
 	it("can count the number of characters in a message", () => {
@@ -23,9 +23,9 @@ describe("A program to implement a crypto square algorithm", () => {
 
 	it("can subdivide a message up into 'words' using the sqrt() value", () => {
 		expect(cryptoSquare.subdivide("asentencewithoutspaces"))
-			.toBe(["asent","encew","ithou","tspac","es"]);
+			.toEqual(["asent","encew","ithou","tspac","es"]);
 		expect(cryptoSquare.subdivide("anothersentencewithoutspaces"))
-			.toBe(["anothe", "rsente", "ncewit", "houtsp", "aces"]);
+			.toEqual(["anothe", "rsente", "ncewit", "houtsp", "aces"]);
 	});
 		
 });
