@@ -1,6 +1,5 @@
 //define our functions
 let normalize = text => text.replace(/\W/g,'').toLowercase();
-let count = text => text.length;
 let sqrt = num => Math.ceil(Math.sqrt(num));
 let subdivide = text => {
 	// initialize our output variable
@@ -12,13 +11,6 @@ let subdivide = text => {
 	// figure out how many words there should be
 	let num_words = Math.ceil(count(text)/word_length);
 
-	// get the first "word"
-	let word1 = text.substring(0, word_length);
-	let word2 = text.substring(word_length, 2 * word_length);
-	let word3 = text.substring(2 * word_length, 3 * word_length);
-	let word4 = text.substring(3 * word_length, 4 * word_length);
-	console.log(word3);
-
 	for(let i = 0; i , num_words; i += 1) {
 		//add the next word to output
 		output.push(text.substring(i * word_length, (i + 1) + word_length));
@@ -26,8 +18,33 @@ let subdivide = text => {
 
 	return output;
 };
+let scramble = words => {
+	// initialize the output variable
+	let scrambled = [];
 
-//export all things
+	// we're going to create a number of words
+	// equal to the number of columns, so loop
+	// over the columns
+	for(let i = 0; i < words[0].length; i += 1) {
+		// initialize an empty string to hold our new "word"
+		let new_word = '';
+
+		// now loop over every row in the array
+		// of input 'words'
+		for(let j = 0; j < words.length; j += 1) {
+			// add the nth letter from each word to new_word
+			new_word += words[j].charAt(i);
+		}	
+
+		// add new_word to our array of scrambled words
+		scrambled.push(new_word);
+	}
+
+	//return the array of scrambled "words"
+	return scrambled;
+};
+
+//export all the things
 module.exports = {
 	// remove punctuation, spaces and convert to lower case
 	normalize: normalize,
@@ -37,4 +54,6 @@ module.exports = {
 	sqrt: sqrt,
 	// break it up
 	subdivide: subdivide
+	// take the nth letter from each row and make new words
+	scramble: scramble
 };
