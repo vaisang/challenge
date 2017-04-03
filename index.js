@@ -44,16 +44,28 @@ let scramble = words => {
 	return scrambled;
 };
 
+let join = words => words.join(' ');
+
+let encrypt = message => {
+	let normalized = normalize(message);
+	let divided = subdivide(normalized);
+	let scrambled = scramble(divided);
+	let joined = join(scrambled);
+	return joined;
+};
+
 //export all the things
 module.exports = {
 	// remove punctuation, spaces and convert to lower case
 	normalize: normalize,
 	// count all of the characters in a message
-	count: count,
-	// get square root or next highest integer
 	sqrt: sqrt,
 	// break it up
-	subdivide: subdivide
+	subdivide: subdivide,
 	// take the nth letter from each row and make new words
-	scramble: scramble
+	scramble: scramble,
+	// join the scrambled words into one sentence
+	join: join,
+	// take in a message; output the encrypted message
+	encrypt:encrypt
 };
